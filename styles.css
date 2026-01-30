@@ -1,0 +1,398 @@
+/* V2 Election System Styles */
+
+:root {
+    --primary-hue: 220;
+    /* Royal green */
+    --accent-hue: 320;
+    /* Pink/Magenta for contrast */
+
+    --bg-dark: #050511;
+    --bg-gradient: linear-gradient(135deg, #050511 0%, #1a1a40 100%);
+
+    --glass-surface: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+
+    --brand-color: hsl(var(--primary-hue), 90%, 60%);
+    --accent-color: hsl(var(--accent-hue), 90%, 60%);
+
+    --radius-xl: 32px;
+    --radius-lg: 16px;
+    --radius-sm: 8px;
+}
+
+/* Base Setup */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+.brand-font {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Background Mesh */
+.background-mesh {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(var(--primary-hue), 100, 100, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(var(--accent-hue), 100, 100, 0.05) 0%, transparent 40%);
+    z-index: -1;
+}
+
+/* Utilities */
+.hidden {
+    display: none !important;
+}
+
+.glass-panel {
+    background: var(--glass-surface);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.primary-btn {
+    background: var(--brand-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.primary-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* Auth Section */
+.view-section {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    animation: fadeIn 0.4s ease;
+}
+
+.auth-container {
+    max-width: 450px;
+    margin: 4rem auto;
+    padding: 3rem;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.auth-icon {
+    font-size: 3rem;
+    color: var(--brand-color);
+    margin-bottom: 1rem;
+}
+
+.auth-tabs {
+    display: flex;
+    margin-bottom: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-sm);
+    padding: 4px;
+}
+
+.tab-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 0.8rem;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+}
+
+.tab-btn.active {
+    background: var(--glass-border);
+    color: white;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    color: white;
+}
+
+/* Header */
+.glass-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--glass-border);
+    background: rgba(5, 5, 17, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.accent-icon {
+    font-size: 2rem;
+    color: var(--accent-color);
+}
+
+.election-badge {
+    font-size: 0.7rem;
+    background: var(--glass-border);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.main-nav {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.nav-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+}
+
+.nav-btn.active,
+.nav-btn:hover {
+    background: var(--glass-surface);
+    color: white;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.stat-card {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--brand-color);
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-family: 'Space Grotesk';
+    font-weight: 700;
+    display: block;
+}
+
+.highlight .stat-icon {
+    color: var(--accent-color);
+}
+
+.chart-container {
+    grid-column: span 2;
+    padding: 2rem;
+    min-height: 400px;
+}
+
+.activity-feed {
+    padding: 1.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.feed-item {
+    padding: 1rem;
+    border-bottom: 1px solid var(--glass-border);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Candidates Grid */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.candidate-card {
+    background: var(--glass-surface);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: transform 0.3s;
+    cursor: pointer;
+    position: relative;
+}
+
+.candidate-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--brand-color);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: #1a1a2e;
+    /* placeholder color */
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.party-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Modals */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: #0f0f1a;
+    width: 90%;
+    max-width: 800px;
+    padding: 2rem;
+    position: relative;
+    border: 1px solid var(--glass-border);
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.profile-layout {
+    display: flex;
+    gap: 2rem;
+}
+
+.profile-img-lg {
+    width: 200px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+}
+
+.vote-action-area {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.vote-btn-lg {
+    width: 100%;
+    padding: 1.2rem;
+    background: var(--brand-color);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+}
+
+.encryption-display {
+    font-family: monospace;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
